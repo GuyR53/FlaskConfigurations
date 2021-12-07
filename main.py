@@ -26,14 +26,16 @@ def formFilled():
     server=request.form['servname']
     clientname=request.form['client']
     foldername=clientname+"configured"
+    before=(os.getcwd())
     os.chdir("..")
+    after=(os.getcwd())
     os.makedirs(foldername)
-    os.makedirs(foldername+"Project\Credit_Data\ "+clientname)
+    os.makedirs(foldername+"\Project\Credit_Data\ "+clientname)
     copytree2("DS_MAJOR\API",foldername)
     copytree2("DS_MAJOR\dist", foldername)
     copytree2("QueryBuilder", foldername)
-    copy_tree("Project\CreditData\Major",foldername+"\Project\CreditData\ "+clientname )
-    xmlfile = foldername+"\Project\CreditData\ "+clientname+"\CWayJobService\CWayJobService.exe.config"
+    copy_tree("Project\Credit_Data\Major",foldername+"\Project\Credit_Data\ "+clientname )
+    xmlfile = foldername+"\Project\Credit_Data\ "+clientname+"\CWayJobService\CWayJobService.exe.config"
     tree = ET.parse(xmlfile)
     root = tree.getroot()
     for elm in root.findall(".//setting[@name='instance']/"):
