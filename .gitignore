@@ -130,4 +130,5 @@ dmypy.json
 
 #Folders
 .idea
+FlaskWebVenv
 PyInstall
