@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+  <link rel="stylesheet" href="{{  url_for('static',filename='bootstrap.min.css')  }}" >
 
+</head>
+<body>
+  <div class="container center_div">
 <h2>Configuration page</h2>
 
 <form action="/FormFilled" method="post">
-  <label for="fname">DB Instance:</label><br>
-  <input type="text" id="insname" name="insname" value=""><br>
-  <label for="lname">Server Instance:</label><br>
-  <input type="text" id="servname" name="servname" value=""><br>
-   <label for="fname">Client Name:</label><br>
+
+  <label >DB Instance :</label><br>
+  <input class="f" type="text" id="insname" name="insname" value=""><br><br>
+  <label >Server Name :</label><br>
+  <input type="text" id="servname" name="servname" value=""><br><br>
+  <label >ServerPort:</label><br>
+  <input class="f" type="text" id="insname" name="port" value=""><br><br>
+   <label >Client Name :</label><br>
   <input type="text" id="clientname" name="client" value=""><br><br>
-  <input type="submit" value="Submit">
+  <label >Mail Service :</label><br>
+  <input class="f" type="text" id="insname" name="mail" value=""><br><br>
+  <label >Disk Drive :</label><br>
+  <input class="f" type="text" id="insname" name="disk" value=""><br><br><br>
+
+  <button type="submit" class="btn btn-primary" >Create New Client</button>
+  
 </form> 
+</div>
+
+
+
 
 
 

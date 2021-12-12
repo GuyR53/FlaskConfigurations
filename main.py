@@ -24,11 +24,12 @@ def formFilled():
 
     DBInstance=request.form['insname']
     server=request.form['servname']
+    serverport=request.form['port']
     clientname=request.form['client']
+    mailservice=request.form['mail']
+    diskdrive=request.form['disk']
     foldername=clientname+"configured"
-    before=(os.getcwd())
     os.chdir("..")
-    after=(os.getcwd())
     os.makedirs(foldername)
     os.makedirs(foldername+"\Project\Credit_Data\ "+clientname)
     copytree2("DS_MAJOR\API",foldername)
