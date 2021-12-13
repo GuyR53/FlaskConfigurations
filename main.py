@@ -53,7 +53,6 @@ def formFilled():
     for elm in root.findall(".//setting[@name='instance']/"):
         elm.text = DBInstance
     tree.write(xmlfile)
-    print(os.getcwd)
     
     
     
@@ -73,28 +72,7 @@ def formFilled():
             elif("d:\Project\Credit_Data\Major" in line):
                 value=diskdrive+":\Project\Credit_Data\ "+clientname
                 value=value.replace(" ","")
-                new_text.append(line.replace("d:\Project\Credit_Data\Major", value))
-                
-            elif("d:\Project\Credit_Data\Major\AutomationScripts\Maintenance_Plan.bat" in line):
-                value=diskdrive+":\Project\Credit_Data\ "+clientname+"\AutomationScripts\Maintenance_Plan.bat"
-                value=value.replace(" ","")
-                new_text.append(line.replace("d:\Project\Credit_Data\Major\AutomationScripts\Maintenance_Plan.bat", value))
-            elif("d:\Project\Credit_Data\Major\XMLFileGenerator\XMLGenerator\XMLFileGenerator.bat" in line):
-                value=diskdrive+":\Project\Credit_Data\ "+clientname+"\XMLFileGenerator\XMLGenerator\XMLFileGenerator.bat"
-                value=value.replace(" ","")
-                new_text.append(line.replace("d:\Project\Credit_Data\Major\XMLFileGenerator\XMLGenerator\XMLFileGenerator.bat",value))
-            elif("d:\Project\Credit_Data\Major\XMLForClient" in line):
-                value=diskdrive+":\Project\Credit_Data\ "+clientname+"\XMLForClient"
-                value=value.replace(" ","")
-                new_text.append(line.replace("d:\Project\Credit_Data\Major\XMLForClient",value))
-            elif("d:\Project\Credit_Data\Major\XMLFileGenerator\XMLGenerator" in line):
-                value=diskdrive+":\Project\Credit_Data\ "+clientname+"\XMLFileGenerator\XMLGenerator"
-                value=value.replace(" ","")
-                new_text.append(line.replace("d:\Project\Credit_Data\Major\XMLFileGenerator\XMLGenerator",value))   
-            elif("d:\Project\Credit_Data\Major\XMLForReload" in line):
-                value=diskdrive+":\Project\Credit_Data\ "+clientname+"\XMLForReload"
-                value=value.replace(" ","")
-                new_text.append(line.replace("d:\Project\Credit_Data\Major\XMLForReload",value))    
+                new_text.append(line.replace("d:\Project\Credit_Data\Major", value))   
             else:
                 new_text.append(line)
 
@@ -109,6 +87,17 @@ def formFilled():
     ChagingBatFiles("\Start_XML_File_Generator.bat","\AutomationScripts")
     ChagingBatFiles("\Start_XML_Loader.bat", "\AutomationScripts")
     ChagingBatFiles("\TFI_Checkpoint_1.bat", "\AutomationScripts")
+    for filename in os.listdir(foldername+"\Project\Credit_Data\ "+clientname+"\AutomationScriptsManually"):
+         filename="\ "+filename
+         l=list(filename)
+         l[1]=""
+         filename="".join(l)
+         ChagingBatFiles(filename, "\AutomationScriptsManually")
+    
+    
+   
+    
+    
 
     return "Done"
 if __name__=="__main__":
