@@ -6,6 +6,7 @@ Created on Wed Dec  1 16:27:01 2021
 
 import xml.etree.ElementTree as ET
 import json
+import configparser
 from distutils.dir_util import copy_tree
 import shutil
 import os
@@ -55,6 +56,29 @@ def formFilled():
     tree.write(xmlfile)
     
     
+     # Parsing through CWayEmailService.exe.config and changing it
+    xmlfile = foldername+"\Project\Credit_Data\ "+clientname+"\CwayEmailService\CWayEmailService.exe.config"
+    tree = ET.parse(xmlfile)
+    root = tree.getroot()
+    for elm in root.findall(".//setting[@name='instance']/"):
+        elm.text = DBInstance
+    tree.write(xmlfile)
+    
+     # Parsing through CwayJobService_Version_4.6.5\CWayEmailService.exe.config and changing it
+    xmlfile = foldername+"\Project\Credit_Data\ "+clientname+"\CwayJobService_Version_4.6.5\CWayJobService.exe.config"
+    tree = ET.parse(xmlfile)
+    root = tree.getroot()
+    for elm in root.findall(".//setting[@name='instance']/"):
+        elm.text = DBInstance
+    for elm in root.findall(".//setting[@name='RasModule']/"):
+        elm.text="\\"+server+"\c$\Program Files\HMS\RAS_API\RAS_API.exe"
+    for elm in root.findall(".//setting[@name='SMTPModule']/"):
+        val=("\\"+server+"\ "+diskdrive+"\Project\Credit_Data\ "+clientname+"\ reportMailSendEngine\ reportMailSendEngine.exe").replace(" ","")
+        elm.text=val
+    tree.write(xmlfile)
+    
+    
+    
     
     # Changing .bat files in client folder
     def ChagingBatFiles(FileName,FolderInClientPath):
@@ -95,6 +119,7 @@ def formFilled():
          ChagingBatFiles(filename, "\AutomationScriptsManually")
     
     
+
    
     
     
