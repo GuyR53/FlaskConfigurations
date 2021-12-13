@@ -6,23 +6,34 @@
 </head>
 <body>
   <div class="container center_div">
-<h2>Configuration page</h2>
+<h4 class="form-control-plaintext">Configuration page</h4>
 
 <form action="/FormFilled" method="post">
-
-  <label >DB Instance :</label><br>
-  <input class="f" type="text" id="insname" name="insname" value=""><br><br>
-  <label >Server Name :</label><br>
-  <input type="text" id="servname" name="servname" value=""><br><br>
-  <label >ServerPort:</label><br>
-  <input class="f" type="text" id="insname" name="port" value=""><br><br>
-   <label >Client Name :</label><br>
-  <input type="text" id="clientname" name="client" value=""><br><br>
-  <label >Mail Service :</label><br>
-  <input class="f" type="text" id="insname" name="mail" value=""><br><br>
-  <label >Disk Drive :</label><br>
-  <input class="f" type="text" id="insname" name="disk" value=""><br><br><br>
-
+<div class="form-group">
+  <label class="form-check-label" >DB Instance :</label><br>
+  <input class="f" type="text" id="insname" name="insname" value=""><br>
+</div>
+<div class="form-group">
+  <label class="form-check-label" >Server Name :</label><br>
+  <input type="text" id="servname" name="servname" value=""><br>
+</div>
+<div class="form-group">
+  <label class="form-check-label" >Server Port :</label><br>
+  <input class="f" type="text" id="insname" name="port" value=""><br>
+</div>
+<div class="form-group">
+   <label class="form-check-label" >Client Name :</label><br>
+  <input type="text" id="clientname" name="client" value=""><br>
+</div>
+<div class="form-group">
+  <label class="form-check-label" >Mail Service :</label><br>
+  <input class="f" type="text" id="insname" name="mail" value=""><br>
+</div>
+<div class="form-group">
+  <label class="form-check-label" >Disk Drive :</label><br>
+  <input class="f" type="text" id="insname" name="disk" value=""><br>
+</div>
+<br>
   <button type="submit" class="btn btn-primary" >Create New Client</button>
   
 </form> 
