@@ -56,6 +56,40 @@ def formFilled():
     tree.write(xmlfile)
     
     
+     # Changing DCPRunEngine.exe.config and changing it
+    filepath=foldername+"\Project\Credit_Data\ "+clientname+"\DCPRunEngine\DCPRunEngine.exe.config"
+    with open(filepath, 'r') as f:
+        res = f.read().replace('HMS-SQL2\major', (DBInstance+"\ "+clientname).replace(" ",""))
+    with open(filepath,'w') as f:
+        f.write(res)
+    with open(filepath, 'r') as f:
+        res = f.read().replace('192.168.1.34\major', (server+"\ "+clientname).replace(" ",""))
+    with open(filepath,'w') as f:
+        f.write(res)
+        
+    # Changing RasModuleEngine.exe.config and changing it
+    filepath=foldername+"\Project\Credit_Data\ "+clientname+"\RasModuleEngine\RasModuleEngine.exe.config"
+    with open(filepath, 'r') as f:
+        res = f.read().replace('192.168.1.33', (server))
+    with open(filepath,'w') as f:
+        f.write(res)
+        
+        
+    # Changing XMLCMF_FileGenerator.exe.config and changing it
+    filepath=foldername+"\Project\Credit_Data\ "+clientname+"\XMLFileGenerator\XMLCMFGenerator\XMLCMF_FileGenerator.exe.config"
+    with open(filepath, 'r') as f:
+        res = f.read().replace('hms-sql2\major',(DBInstance+"\ "+clientname).replace(" ",""))
+    with open(filepath,'w') as f:
+        f.write(res)
+        
+        
+    # Changing XMLFileGenerator.exe.config and changing it
+    filepath=foldername+"\Project\Credit_Data\ "+clientname+"\XMLFileGenerator\XMLGenerator\XMLFileGenerator.exe.config"
+    with open(filepath, 'r') as f:
+        res = f.read().replace('HMS-SQL2\major',(DBInstance+"\ "+clientname).replace(" ",""))
+    with open(filepath,'w') as f:
+        f.write(res)
+    
      # Parsing through CWayEmailService.exe.config and changing it
     xmlfile = foldername+"\Project\Credit_Data\ "+clientname+"\CwayEmailService\CWayEmailService.exe.config"
     tree = ET.parse(xmlfile)
