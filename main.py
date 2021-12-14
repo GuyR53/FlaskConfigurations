@@ -67,6 +67,46 @@ def formFilled():
     with open(filepath,'w') as f:
         f.write(res)
         
+    
+     # Changing XMLAgent.exe.config and changing it
+    filepath=foldername+"\Project\Credit_Data\ "+clientname+"\XMLLoader\CIFLoader\XMLAgent.exe.config"
+    with open(filepath, 'r') as f:
+        res = f.read().replace('HMS-SQL2\major', (DBInstance+"\ "+clientname).replace(" ",""))
+    with open(filepath,'w') as f:
+        f.write(res)
+    with open(filepath, 'r') as f:
+        res = f.read().replace('192.168.1.33\d$\Project\Credit_Data\major', (server+"\ "+diskdrive+"$\Project\Credit_Data\ "+clientname).replace(" ",""))
+    with open(filepath,'w') as f:
+        f.write(res)
+        
+        
+     # Changing XMLCMFLoader.exe.config and changing it
+    filepath=foldername+"\Project\Credit_Data\ "+clientname+"\XMLLoader\CMFLoader\XMLCMFLoader.exe.config"
+    with open(filepath, 'r') as f:
+        res = f.read().replace('hms-sql2\major', (DBInstance+"\ "+clientname).replace(" ",""))
+    with open(filepath,'w') as f:
+        f.write(res)
+    with open(filepath, 'r') as f:
+        res = f.read().replace('192.168.1.33\d$\Project\Credit_Data\Major', (server+"\ "+diskdrive+"$\Project\Credit_Data\ "+clientname).replace(" ",""))
+    with open(filepath,'w') as f:
+        f.write(res)
+        
+        
+      # Changing XMLIMFLoader.exe.config and changing it
+    filepath=foldername+"\Project\Credit_Data\ "+clientname+"\XMLLoader\IMFLoader\XMLIMFLoader.exe.config"
+    with open(filepath, 'r') as f:
+        res = f.read().replace('HMS-SQL2\major', (DBInstance+"\ "+clientname).replace(" ",""))
+    with open(filepath,'w') as f:
+        f.write(res)
+    with open(filepath, 'r') as f:
+        res = f.read().replace('192.168.1.33\d$\Project\Credit_Data\major', (server+"\ "+diskdrive+"$\Project\Credit_Data\ "+clientname).replace(" ",""))
+    with open(filepath,'w') as f:
+        f.write(res)
+    
+    
+    
+    
+        
     # Changing RasModuleEngine.exe.config and changing it
     filepath=foldername+"\Project\Credit_Data\ "+clientname+"\RasModuleEngine\RasModuleEngine.exe.config"
     with open(filepath, 'r') as f:
@@ -130,7 +170,21 @@ def formFilled():
             elif("d:\Project\Credit_Data\Major" in line):
                 value=diskdrive+":\Project\Credit_Data\ "+clientname
                 value=value.replace(" ","")
-                new_text.append(line.replace("d:\Project\Credit_Data\Major", value))   
+                new_text.append(line.replace("d:\Project\Credit_Data\Major", value))  
+            elif("D:\Project\Credit_Data\major" in line):
+                value=diskdrive+":\Project\Credit_Data\ "+clientname
+                value=value.replace(" ","")
+                new_text.append(line.replace("D:\Project\Credit_Data\major", value))  
+            elif("d:\Project\Credit_Data\major" in line):
+                value=diskdrive+":\Project\Credit_Data\ "+clientname
+                value=value.replace(" ","")
+                new_text.append(line.replace("d:\Project\Credit_Data\major", value))  
+            elif("192.168.1.33\d$\Project\Credit_Data\Major" in line):
+                value=server+"\ "+diskdrive+":\Project\Credit_Data\ "+clientname
+                value=value.replace(" ","")
+                new_text.append(line.replace("192.168.1.33\d$\Project\Credit_Data\Major", value)) 
+            
+            
             else:
                 new_text.append(line)
 
@@ -151,6 +205,9 @@ def formFilled():
          l[1]=""
          filename="".join(l)
          ChagingBatFiles(filename, "\AutomationScriptsManually")
+    ChagingBatFiles("\Start_CIF_Update_Field - Yahav.bat", "\AutomationScriptsManually")
+    ChagingBatFiles("\Start_CIF_Update_Field.bat", "\AutomationScriptsManually")
+    ChagingBatFiles("\Start_CIF_Update_Field_isracard.bat", "\AutomationScriptsManually")
     
     
 
