@@ -56,7 +56,7 @@ def formFilled():
     tree.write(xmlfile)
     
     
-     # Changing DCPRunEngine.exe.config and changing it
+     # Changing DCPRunEngine.exe.config
     filepath=foldername+"\Project\Credit_Data\ "+clientname+"\DCPRunEngine\DCPRunEngine.exe.config"
     with open(filepath, 'r') as f:
         res = f.read().replace('HMS-SQL2\major', (DBInstance+"\ "+clientname).replace(" ",""))
@@ -68,7 +68,7 @@ def formFilled():
         f.write(res)
         
     
-     # Changing XMLAgent.exe.config and changing it
+     # Changing XMLAgent.exe.config 
     filepath=foldername+"\Project\Credit_Data\ "+clientname+"\XMLLoader\CIFLoader\XMLAgent.exe.config"
     with open(filepath, 'r') as f:
         res = f.read().replace('HMS-SQL2\major', (DBInstance+"\ "+clientname).replace(" ",""))
@@ -80,7 +80,7 @@ def formFilled():
         f.write(res)
         
         
-     # Changing XMLCMFLoader.exe.config and changing it
+     # Changing XMLCMFLoader.exe.config 
     filepath=foldername+"\Project\Credit_Data\ "+clientname+"\XMLLoader\CMFLoader\XMLCMFLoader.exe.config"
     with open(filepath, 'r') as f:
         res = f.read().replace('hms-sql2\major', (DBInstance+"\ "+clientname).replace(" ",""))
@@ -92,7 +92,33 @@ def formFilled():
         f.write(res)
         
         
-      # Changing XMLIMFLoader.exe.config and changing it
+        
+    # Changing config.bat
+    filepath=foldername+"\Project\Credit_Data\ "+clientname+"\config.bat"
+    with open(filepath, 'r') as f:
+        res = f.read().replace('HMS-SQL2\major', (DBInstance+"\ "+clientname).replace(" ",""))
+    with open(filepath,'w') as f:
+        f.write(res)
+    with open(filepath, 'r') as f:
+        res = f.read().replace('192.168.1.33\d$\Project\Credit_Data\major', (server+"\ "+diskdrive+"$\Project\Credit_Data\ "+clientname).replace(" ",""))
+    with open(filepath,'w') as f:
+        f.write(res)
+    with open(filepath, 'r') as f:
+        res = f.read().replace('192.168.1.33\d$\Project\Credit_Data\Major', (server+"\ "+diskdrive+"$\Project\Credit_Data\ "+clientname).replace(" ",""))
+    with open(filepath,'w') as f:
+        f.write(res)
+    with open(filepath, 'r') as f:
+        res = f.read().replace('192.168.1.27', (mailservice).replace(" ",""))
+    with open(filepath,'w') as f:
+        f.write(res)
+    with open(filepath, 'r') as f:
+        res = f.read().replace('192.168.1.33:8081', (mailservice+":"+serverport).replace(" ",""))
+    with open(filepath,'w') as f:
+        f.write(res)
+    
+        
+        
+      # Changing XMLIMFLoader.exe.config 
     filepath=foldername+"\Project\Credit_Data\ "+clientname+"\XMLLoader\IMFLoader\XMLIMFLoader.exe.config"
     with open(filepath, 'r') as f:
         res = f.read().replace('HMS-SQL2\major', (DBInstance+"\ "+clientname).replace(" ",""))
@@ -107,7 +133,7 @@ def formFilled():
     
     
         
-    # Changing RasModuleEngine.exe.config and changing it
+    # Changing RasModuleEngine.exe.config 
     filepath=foldername+"\Project\Credit_Data\ "+clientname+"\RasModuleEngine\RasModuleEngine.exe.config"
     with open(filepath, 'r') as f:
         res = f.read().replace('192.168.1.33', (server))
@@ -115,7 +141,7 @@ def formFilled():
         f.write(res)
         
         
-    # Changing XMLCMF_FileGenerator.exe.config and changing it
+    # Changing XMLCMF_FileGenerator.exe.config 
     filepath=foldername+"\Project\Credit_Data\ "+clientname+"\XMLFileGenerator\XMLCMFGenerator\XMLCMF_FileGenerator.exe.config"
     with open(filepath, 'r') as f:
         res = f.read().replace('hms-sql2\major',(DBInstance+"\ "+clientname).replace(" ",""))
@@ -123,7 +149,7 @@ def formFilled():
         f.write(res)
         
         
-    # Changing XMLFileGenerator.exe.config and changing it
+    # Changing XMLFileGenerator.exe.config
     filepath=foldername+"\Project\Credit_Data\ "+clientname+"\XMLFileGenerator\XMLGenerator\XMLFileGenerator.exe.config"
     with open(filepath, 'r') as f:
         res = f.read().replace('HMS-SQL2\major',(DBInstance+"\ "+clientname).replace(" ",""))
